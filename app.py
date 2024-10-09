@@ -1,4 +1,5 @@
 import pygame
+import sys
 from pygame.locals import *
  
 pygame.init()
@@ -10,23 +11,23 @@ ACC = 0.5
 FRIC = -0.12
 FPS = 60
 
-BACKGROUND = pygame.image.load("Replicate_Bistro.png")
+### 
+BACKGROUND = pygame.transform.scale(pygame.image.load("Replicate_Bistro.png"), (HEIGHT, WIDTH))
  
 FramePerSec = pygame.time.Clock()
  
 ### Creates a canvas to display everything ###
-displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
+displaysurface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
-displaysurface.blit(BACKGROUND, (HEIGHT, WIDTH))
 pygame.display.set_caption("Game")
 
 running = True
 while running:
     for event in pygame.event.get():
-        if event.type == QUIT:
+        if event.type == QUIT or (event.type == pygame.KEYDOWN and event. key == pygame. K_ESCAPE):
             running = False
 
-    displaysurface.fill((0, 0, 0))  # Fill the screen with a black color
+    displaysurface.blit(BACKGROUND, (0,0))
     pygame.display.update()
     FramePerSec.tick(FPS)
 
