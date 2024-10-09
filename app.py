@@ -9,10 +9,15 @@ WIDTH = 400
 ACC = 0.5
 FRIC = -0.12
 FPS = 60
+
+BACKGROUND = pygame.image.load("Replicate_Bistro.png")
  
 FramePerSec = pygame.time.Clock()
  
+### Creates a canvas to display everything ###
 displaysurface = pygame.display.set_mode((WIDTH, HEIGHT))
+
+displaysurface.blit(BACKGROUND, (HEIGHT, WIDTH))
 pygame.display.set_caption("Game")
 
 running = True
